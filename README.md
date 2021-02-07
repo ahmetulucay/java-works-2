@@ -1,7 +1,11 @@
 # JAVA-WORKS-2
 
-While loops
+if - else
 
-Break and Continue
+while - do loops
 
-Functions
+for loops
+
+break and continue
+
+functions
