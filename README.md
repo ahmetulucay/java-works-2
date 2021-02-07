@@ -17,3 +17,9 @@ inheritance
 polymorphism
 
 etc.
+
+#
+
+Feel free for any suggestions, recommendations or improvements.
+
+THANKS
