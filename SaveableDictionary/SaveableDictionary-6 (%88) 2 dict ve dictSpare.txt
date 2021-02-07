@@ -1,0 +1,86 @@
+
+package dictionary;
+
+
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class SaveableDictionary {
+
+    private HashMap<String, String> dict = new HashMap<>();
+    private HashMap<String, String> dictSpare = new HashMap<>();
+    private String file;
+
+    public SaveableDictionary() {
+        this.dict = new HashMap<>();
+        this.dictSpare = new HashMap<>();
+    }
+
+    public SaveableDictionary(String file) {
+        this.file = file;
+    }
+
+    public boolean load() {
+        try (Scanner scanner = new Scanner(new File(this.file))) {
+            while (scanner.hasNext()) {
+                String[] parts = scanner.nextLine().split(":");
+                add(parts[0], parts[1]);
+                dictSpare.put(parts[1], parts[0]);
+            }
+        } catch (Exception e) {
+            return false;
+        }return true;
+    }
+
+    public boolean save() {
+        
+        for (String val : dictSpare.values()) {
+            if (dict.containsKey(val)){
+                String key = dict.get(val);
+                dict.remove(key);
+            }
+        }
+        
+        try (PrintWriter writer = new PrintWriter(new File(file))) {
+            for (String key : dict.keySet()) {
+                writer.println(key + ":" + dict.get(key));
+            }
+        } catch (Exception e) {
+            return false;
+        }return true;
+    }
+
+    public void add(String words, String translation) {
+        if (dict.isEmpty()){
+            dict.put(words, translation);
+            dict.put(translation, words);
+        } else {
+            if (dict.containsKey(words)) {
+                return;
+            } else {
+                dict.put(words, translation);
+                dict.put(translation, words);
+            }
+        }
+    }
+
+    public String translate(String word) {
+        if (dict.containsKey(word)){
+            return dict.get(word);
+        }
+        else{
+            return null;
+        }
+    }
+
+    public void delete(String word) {
+        if (dict.containsKey(word)){
+            String value=dict.get(word);
+            dict.remove(word);
+            dict.remove(value);          
+        }
+    }
+
+}
