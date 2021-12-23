@@ -11,7 +11,7 @@ package ders10;
  */
 import java.util.Scanner;
 
-public class Ders10 {
+public class Class10 {
 
     /**
      * @param args the command line arguments
@@ -21,23 +21,23 @@ public class Ders10 {
         
      Scanner scan = new Scanner(System.in);
      
-        System.out.println("Sayiyi giriniz: ");
+        System.out.println("Write a number: ");
         
-        int sayi = scan.nextInt();
+        int no = scan.nextInt();
         
-        int sayi1 = sayi ;
+        int no1 = no ;
         
-        int faktoriyel = 1;
+        int factorial = 1;
         
-        while (sayi>=1){
+        while (no>=1){
         
-            faktoriyel = faktoriyel *sayi ;
+            factorial = factorial * no ;
             
-            System.out.println("Faktoriyel= "+faktoriyel+", Sayi= "+ sayi);
+            System.out.println("Factorial= "+factorial+", Number= "+ no);
             
-            sayi --;
+            no --;
         }    
-        System.out.println(sayi1+ " sayisinin "+"Faktoriyeli= " + faktoriyel+"'dir.");
+        System.out.println("Factorial of the number " no1+ " is " + factorial);
      
     }
     
