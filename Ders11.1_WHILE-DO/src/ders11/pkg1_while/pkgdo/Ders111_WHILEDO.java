@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Eier
  */
-public class whileDoLoop {
+public class  Ders111_WHILEDO {
 
     /**
      * @param args the command line arguments
